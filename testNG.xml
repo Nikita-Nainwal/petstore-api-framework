@@ -2,7 +2,7 @@
 <suite name="PetstoreAPITestSuite">
     <test name="PetTests">
         <classes>
-            <class name="clientCall.Pet_Call"/>
+            <class name="pet_testCases.Add_Update_pet"/>
         </classes>
     </test>
 </suite>
