@@ -7,7 +7,7 @@ public class AddPet {
     private Category category;
     private String name;
     private List<String> photoUrls;
-    private List<Tag> tag;
+    private List<Tag> tags;
     private String status;
 
 
@@ -20,7 +20,11 @@ public class AddPet {
     }
 
     public List<Tag> getTags() {
-        return tag;
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
     public String getStatus() {
@@ -30,6 +34,12 @@ public class AddPet {
     public void setId(int id) {
         this.id = id;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+
 
     public void setCategory(Category category) {
         this.category = category;
@@ -43,9 +53,7 @@ public class AddPet {
         this.photoUrls = photoUrls;
     }
 
-    public void setTags(List<Tag> tags) {
-        this.tag = tag;
-    }
+
 
     public void setStatus(String status) {
         this.status = status;
