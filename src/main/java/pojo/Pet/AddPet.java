@@ -3,7 +3,8 @@ package pojo.Pet;
 import java.util.List;
 
 public class AddPet {
-    private int id;
+    //This class will be used for serializartion and deserialization
+    private long  id;
     private Category category;
     private String name;
     private List<String> photoUrls;
@@ -31,7 +32,7 @@ public class AddPet {
         return status;
     }
 
-    public void setId(int id) {
+    public void setId(long  id) {
         this.id = id;
     }
 
@@ -59,8 +60,21 @@ public class AddPet {
         this.status = status;
     }
 
-    public int getId() {
+    public long  getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "id=" + id +
+                ", category=" + category +
+                ", name='" + name + '\'' +
+                ", photoUrls=" + photoUrls +
+                ", tags=" + tags +
+                ", status='" + status + '\'' +
+                '}';
+    }
+
 }
 

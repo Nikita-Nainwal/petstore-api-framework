@@ -3,11 +3,12 @@ package pet_testCases;
 import clientCall.Pet_Call;
 import factory.Post_Put_Pet;
 import io.restassured.response.Response;
-import org.apache.logging.log4j.core.net.Priority;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pojo.Pet.AddPet;
 import utils.JSONUtils;
+
+import java.util.List;
 
 public class Add_Update_pet {
     Post_Put_Pet createPet = new Post_Put_Pet();
@@ -50,4 +51,36 @@ public class Add_Update_pet {
         System.out.println(respose.jsonPath().getString("type"));
 
     }
+    @Test(priority = 4)
+    public void updatePet() {
+        addPet.setName("New mini");
+        addPet.setStatus("unavailable");
+        Response response = Pet_Call.putPet(addPet);
+        AddPet res = response.as(AddPet.class);
+        JSONUtils.printPayload(res);
+       Assert.assertEquals(response.getStatusCode(), 200);
+
+    }
+
+    @Test(priority = 5)
+    public void getPet() {
+        List<AddPet> response = Pet_Call.getPet();
+        System.out.println(response.size());
+        JSONUtils.printPayload(response.get(100));
+
+    }
+
+    @Test(priority = 6)
+    public void getPetById() {
+        Response response = Pet_Call.getPetById(1);
+        AddPet res = response.as(AddPet.class);
+        JSONUtils.printPayload(res);
+    }
+
+    @Test(priority = 7)
+    public void deletePetRecord(){
+        Response res = Pet_Call.deleteRecord(10);
+        System.out.println(res.jsonPath().getString("code"));
+    }
+
 }

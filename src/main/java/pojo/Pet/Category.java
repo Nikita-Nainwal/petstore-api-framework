@@ -1,14 +1,14 @@
 package pojo.Pet;
 
 public class Category {
-    private int id;
+    private long  id;
     private String name;
 
-    public int getId() {
+    public long  getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long  id) {
         this.id = id;
     }
 
@@ -19,4 +19,13 @@ public class Category {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
 }
